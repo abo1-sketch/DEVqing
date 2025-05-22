@@ -1,0 +1,645 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  background-color: #f0f0f0;
+  color: #fff;
+}
+
+/* Background wrapper containing nav + hero */
+.hero-wrapper {
+  background-image: url('images/people-celebrating-world-population-day_\(1\)[1].jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  position: relative;
+  color: white;
+}
+
+
+.hero-wrapper::before {
+  content: "";
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: rgba(0, 0, 0, 0.6); 
+  z-index: 0;
+}
+
+.navbar, .hero {
+  position: relative;
+  z-index: 1;
+}
+
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: transparent; 
+  color: white;
+  font-weight: bold;
+  flex-wrap: wrap; 
+}
+
+/* Nav links */
+.nav-links {
+  list-style: none;
+  display: flex;
+  gap: 1.5rem;
+  flex-wrap: wrap; 
+  margin-top: 0;
+}
+
+.nav-links a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+  white-space: nowrap; 
+}
+
+.nav-links a:hover {
+  text-decoration: underline;
+}
+
+
+.nav-right {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.search-bar {
+  padding: 0.4rem 0.7rem;
+  border-radius: 5px;
+  border: none;
+  font-size: 1rem;
+  min-width: 150px;
+}
+
+
+.btn {
+  background-color: #4CAF50; 
+  border: none;
+  padding: 0.5rem 1rem;
+  color: white;
+  border-radius: 4px;
+  cursor: pointer;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+  white-space: nowrap;
+}
+
+.btn:hover {
+  background-color: #45a049;
+}
+
+
+.hero {
+  padding: 4rem 2rem;
+  text-align: center;
+  background: transparent; 
+  color: white;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  line-height: 1.2;
+  text-align: left;
+}
+
+.highlight {
+  color: #FFD700; 
+  font-weight: 900;
+}
+
+.hero-content p {
+  font-size: 1.3rem;
+  margin-bottom: 1.5rem;
+  text-align: left;
+}
+
+
+.hero-buttons {
+  display: flex;
+  justify-content: flex-start;
+  gap: 1.5rem;
+  text-align: left;
+  flex-wrap: wrap;
+}
+
+.hero-buttons .btn {
+  padding: 0.8rem 1.5rem;
+  font-size: 1.1rem;
+}
+
+
+@keyframes slideDown {
+  0% {
+    opacity: 0;
+    transform: translateY(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.navbar {
+  animation: slideDown 1s ease forwards;
+}
+
+/* Animation for hero content fade in + slide up */
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.hero-content {
+  opacity: 0; /* start hidden */
+  animation: fadeInUp 1.2s ease forwards;
+  animation-delay: 0.5s; /* delay so navbar animates first */
+}
+
+
+/* Buttons */
+.btn {
+  padding: 10px 20px;
+  border: none;
+  border-radius: 6px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+.create-campaign {
+  background-color: #0047ab;
+  color: white;
+}
+
+.donate {
+  background-color: #ffffff;
+  color: #000;
+}
+
+.connect-wallet {
+  background-color: transparent;
+  border: 1px solid #fff;
+  color: white;
+}
+
+.campaigns-section {
+  padding: 40px 20px;
+  background-color: #d9d9d9;
+  text-align: center;
+  animation: fadeInUp 1.5s ease-out;
+}
+
+.campaigns-section h2 {
+  font-size: 28px;
+  margin-bottom: 30px;
+  text-transform: uppercase;
+  color: #222;
+}
+
+.campaigns-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 20px;
+  justify-items: center;
+  width: 100%;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.campaign-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  width: 100%;
+  max-width: 300px;
+  overflow: hidden;
+  text-align: center;
+  padding: 0;
+  opacity: 0;
+  animation: fadeInUp 2s forwards;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.campaign-card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+  display: block;
+}
+
+.campaign-card-content {
+  padding: 20px;
+  flex-grow: 1;
+}
+
+.campaign-card-content h3 {
+  font-size: 20px;
+  margin: 10px 0;
+}
+
+.campaign-card p {
+  margin: 5px 0;
+  color: #333;
+}
+
+.campaign-card button {
+  background-color: #333;
+  font-size: 17px;
+  font-weight: 700;
+  color: white;
+  border: none;
+  padding: 10px 16px;
+  margin: 10px 0 20px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background 0.3s;
+}
+
+.campaign-card button:hover {
+  background-color: #444;
+}
+
+.explore-btn {
+  margin-top: 30px;
+}
+
+.explore-btn button {
+  padding: 12px 20px;
+  background-color: transparent;
+  color: black;
+  border: 1.5px solid black;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.explore-btn button:hover {
+  background-color: black;
+  color: white;
+}
+
+/* Fundraising Process Section */
+.fundraising-process {
+  background-color: #ffffff;
+  padding: 60px 20px;
+  text-align: center;
+  max-width: 1000px;
+  margin: 0 auto;
+}
+
+.section-title {
+  font-family: 'Orbitron', sans-serif;
+  font-size: 28px;
+  color: #000;
+  letter-spacing: 2px;
+  margin-bottom: 50px;
+}
+
+.steps-wrapper {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 30px;
+}
+
+.step-box {
+  width: 250px;
+  padding: 20px;
+  text-align: center;
+  animation: fadeInUp 2s ease-out;
+  background: #f9f9f9;
+  border-radius: 8px;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1);
+}
+
+.step-box img {
+  width: 80px;
+  height: auto;
+  margin-bottom: 15px;
+}
+
+.step-box h4 {
+  font-size: 18px;
+  color: #555;
+  margin-bottom: 10px;
+}
+
+.step-box p {
+  font-size: 14px;
+  color: #222;
+  line-height: 1.6;
+}
+
+/* Keyframe Animations */
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 1;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes slideIn {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(0);
+  }
+}
+
+/* ========== RESPONSIVE STYLES ========== */
+@media (max-width: 1024px) {
+  .navbar {
+    flex-direction: column;
+    align-items: flex-start;
+    padding: 20px 1rem;
+  }
+
+  .nav-links {
+    flex-direction: column;
+    gap: 10px;
+    margin-top: 10px;
+    width: 100%;
+  }
+
+  .nav-links a {
+    font-size: 1rem;
+  }
+
+  .nav-right {
+    width: 100%;
+    margin-top: 15px;
+    justify-content: flex-start;
+  }
+
+  .search-bar {
+    width: 100%;
+    min-width: unset;
+  }
+
+  .hero-content h1 {
+    font-size: 2.5rem;
+    text-align: left;
+  }
+
+  .hero-content p {
+    font-size: 1.1rem;
+    text-align: left;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+    gap: 15px;
+    justify-content: flex-start;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    padding: 3rem 1.5rem;
+  }
+
+  .campaigns-section h2,
+  .section-title {
+    font-size: 22px;
+  }
+
+  .campaigns-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .steps-wrapper {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .step-box {
+    width: 90%;
+  }
+
+  .hero-content h1 {
+    font-size: 2rem;
+  }
+
+  .hero-content p {
+    font-size: 1rem;
+  }
+
+  .btn {
+    padding: 8px 15px;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-content h1 {
+    font-size: 1.7rem;
+  }
+
+  .hero-content p {
+    font-size: 0.9rem;
+  }
+
+  .hero-buttons .btn {
+    font-size: 0.9rem;
+    padding: 8px 12px;
+  }
+
+  .campaign-card {
+    max-width: 100%;
+  }
+
+  .step-box img {
+    width: 60px;
+  }
+
+  .section-title {
+    font-size: 20px;
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .logo {
+    color: black;
+  }
+}
+
+/* Back to top button */
+.back-to-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: green;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  display: none;
+  cursor: pointer;
+  z-index: 999;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0; left: 0; width: 100%; height: 100%;
+  background: rgba(0,0,0,0.7);
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.modal-content {
+  background: #fff;
+  color: #000;
+  padding: 20px;
+  max-width: 600px;
+  width: 90%;
+  border-radius: 10px;
+  position: relative;
+}
+
+.modal-content h2 {
+  margin-bottom: 15px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 10px; right: 15px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  cursor: pointer;
+  background: none;
+  border: none;
+  color: #333;
+}
+
+
+/* Divider line above footer */
+.divider-line {
+  height: 10px;
+  background-color: #000; /* Black divider */
+  width: 100%;
+}
+
+/* Footer styling */
+footer {
+  background-color: #2b0a3d; /* Dark purple */
+  color: #fff;
+  padding: 40px 20px;
+  font-family: Arial, sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.footer-section {
+  flex: 1 1 200px;
+  margin: 20px 10px;
+}
+
+.footer-section h4 {
+  margin-bottom: 15px;
+  font-size: 16px;
+  color: #fff;
+}
+
+.footer-section ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.footer-section ul li {
+  margin-bottom: 10px;
+}
+
+.footer-section ul li a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.footer-section ul li a:hover {
+  text-decoration: underline;
+}
+
+.footer-bottom {
+  text-align: left;
+  margin-top: 20px;
+  font-size: 14px;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding-bottom: 20px;
+}
+
+.footer-bottom p {
+  margin-bottom: 15px;
+}
+
+.social-icons {
+  margin-top: 10px;
+}
+
+.social-icons a {
+  display: inline-block;
+  color: #fff;
+  margin-right: 15px;
+  font-size: 18px;
+  transition: color 0.3s ease;
+}
+
+.social-icons a:hover {
+  color: #ccc;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+  }
+  .footer-section {
+    margin: 10px 0;
+  }
+}
